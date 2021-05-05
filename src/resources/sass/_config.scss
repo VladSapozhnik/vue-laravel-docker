@@ -1,0 +1,156 @@
+//Media breakpoints
+$points: (st: 320,
+        xs: 375,
+        psw: 412,
+        sm: 480,
+        ms: 640,
+        md: 798,
+        def: 1024,
+        lg: 1280,
+        xl: 1366,
+        mg: 1440,
+        hd: 1720,
+        dt: 1980);
+
+// COLORS
+$black   : #000000;
+$white   : #FFFFFF;
+$red-1   : #EE1D23; // error
+$dark-1  : #323232; // title texts
+$dark-2  : #535353; //Secondary text / Icon / Links
+$green-1 : #7AB85E; // btn
+$gray-1  : #8B8B8B;
+$orange-1: #ECB144; // color hover menu + btn
+$gray-2  : #808080;
+$gray-4  : #eeeeee;
+$gray-5  : #828282;
+$blue-1  : #5397D6; // standart links
+$light-1 : #FBFBFB;
+$yellow-1: #EEDC82; // buttons
+
+
+//Font families
+$font-family: 'Open Sans', sans-serif;
+$font-style : normal;
+
+
+
+
+//PARAGRAPH STYLES
+$paragraph-margin          : 25px; //margin-bottom
+$font-size-paragraph-first : 14px;
+$font-size-paragraph-second: 18px;
+$paragraph-height          : 140%;
+$paragraph-color           : $dark-2;
+$text-color-light          : $white;
+
+//HEADINGS STYLES
+$font-family-headings: $font-family;
+$heading-margin      : 0,
+0,
+0,
+0,
+0,
+0;
+
+$heading-font-size : 40,
+28,
+30,
+25,
+20,
+18;
+$heading-font-weight: 700,
+700,
+700,
+700,
+700,
+700; // 1 = "normal"(400)
+$heading-uppercase: 0,
+0,
+0,
+0,
+0,
+0; // 0 = "none", 1 = "uppercase"
+$heading-text-align: l,
+l,
+l,
+l,
+l,
+l; // c = "center", l = "left", r = "right"
+$heading-color       : $green-1;
+$heading-height      : 120%;
+$heading-color-sec   : $dark-2;
+$heading-color-light : $white;
+$heading-font-style  : normal;
+
+// MD Heading sizes (prefix from points)
+$md-heading-change: true;
+$md-heading-margin: 30,
+28,
+25,
+22,
+0,
+0;
+$md-heading-font-size: 35,
+30,
+24,
+20,
+18,
+16;
+
+
+$list-image           : false;
+$background-color     : $light-1;
+$background-color-sec : $white;
+
+$link-color       : $dark-2;
+$link-color-sec   : $white;
+$link-font-size   : 14px;
+$link-hover-color : $orange-1;
+
+// BTN
+$btn-text-color: $white;
+
+//FORMS
+$font-family-validation: $font-family;
+
+$input-height               : 55px;
+$input-indent-left          : 20px;
+$input-fz                   : 14px;
+$input-border               : 1px; // 1px || false
+$input-border-bottom        : 1px;
+$input-border-radius        : 5px; // 1px || false
+$input-border-color         : $gray-2;
+$input-border-hover         : $orange-1;
+$input-border-focus         : $orange-1;
+$input-color                : $dark-1;
+$input-placeholder-color    : $dark-2;
+$input-placeholder-fz-filled: 14px;
+$input-bg                   : $background-color;
+
+$select-arrow-indent-right: 10px;
+$select-arrow-width       : 8px;
+$select-arrow-height      : 4px;
+$select-arrow-icon        : url("/img/sprite.svg#arrow-down-gray");
+
+$select-option-padding       : 4px 20px;
+$select-option-fz            : 16px;
+$select-option-bg            : $white;
+$select-option-hover-bg      : $white;
+$select-option-hover-color   : $dark-1;
+$select-option-selected-bg   : $white;
+$select-option-selected-color: $black;
+
+$select-dropdown-bg           : #fff;
+$select-dropdown-border-radius: false; // 1px || false
+$select-dropdown-border       : false; // 1px || false
+$select-dropdown-color        : $blue-1;
+
+
+
+$checkbox-size            : 16px;
+$checkbox-border-size     : 1px;
+$checkbox-border-color    : $dark-1;
+$checkbox-border-radius   : 3px;
+$checkbox-icon-width      : 15px;
+$checkbox-title-fz        : $font-size-paragraph-first;

@@ -1,8 +1,26 @@
-// Variables
-@import 'variables';
+@charset "UTF-8";
 
-// Bootstrap
-// @import '~bootstrap/scss/bootstrap';
+//variables, typography
+@import "fonts";
+@import "config";
 
-@import './components/_custom-banner.scss'
-gi
+//mixins
+@import "mixins/breakpoints";
+@import "mixins/clearfix";
+@import "mixins/capture";
+@import "mixins/heading";
+@import "mixins/item-img";
+@import "mixins/icon";
+@import "mixins/placeholder";
+@import "mixins/slider-fix";
+
+
+//STYLES
+@import "reset";
+@import "grid";
+@import "base";
+
+//components
+@import "components/custom-banner";
+@import "components/example-component";
+@import "components/contacts"

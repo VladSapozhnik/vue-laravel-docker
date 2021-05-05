@@ -1,0 +1,66 @@
+.container {
+  margin-right: auto;
+  margin-left : auto;
+  width   : 1920px;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 100%;
+}
+
+.container-sm {
+  width : 1280px;
+  margin: 0 auto;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left : 15px;
+
+}
+
+
+.column-25 {
+  width: 25%;
+}
+
+.column-33 {
+  width: 33.3333%;
+}
+
+.column-35 {
+  width: 35%;
+}
+
+.column-40 {
+  width: 40%;
+}
+
+.column-50 {
+  width: 50%;
+}
+
+.column-60 {
+  width: 60%;
+}
+
+.column-66 {
+  width: 66.666%;
+}
+
+.col-25 {
+  width: 25%;
+}
+
+.col-75 {
+  width: 75%;
+}
+
+.col-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}

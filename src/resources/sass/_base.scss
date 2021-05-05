@@ -1,0 +1,282 @@
+html,
+body {
+  height                  : 100%;
+  -webkit-text-size-adjust: 100%;
+
+}
+
+body {
+  position        : relative;
+  display         : flex;
+  flex-direction  : column;
+  width           : 100vw;
+  max-width       : 100%;
+  background-color: $white;
+  font-family     : $font-family;
+  font-size       : $font-size-paragraph-first;
+  color           : $paragraph-color;
+
+  .wrap {
+    flex: 1 0 auto;
+    background: #fff;
+  }
+}
+
+
+a {
+  color          : $link-color;
+  cursor         : pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  img {
+    border: none;
+  }
+}
+
+@include heading();
+
+p {
+  font-size  : $font-size-paragraph-first;
+  line-height: $paragraph-height;
+  color      : $paragraph-color;
+  font-weight: 400;
+}
+
+
+button {
+  line-height: 100%;
+  cursor     : pointer;
+}
+
+input[type="submit"] {
+  font-family       : $font-family-validation;
+  outline           : none;
+  cursor            : pointer;
+  line-height       : 1.3;
+  -webkit-appearance: none;
+  -moz-appearance   : none;
+}
+
+textarea,
+input,
+select {
+  font-family: $font-family-validation;
+}
+
+
+
+li {
+  list-style     : none;
+  text-decoration: none;
+  font-size      : $link-font-size;
+}
+
+.attention {
+  display: none;
+}
+
+html[data-useragent*='MSIE 10.0'] {
+  body * {
+    display: none !important;
+  }
+
+  .attention img {
+    display: block !important;
+    margin : 0 auto 30px;
+  }
+
+  .attention {
+    display       : block !important;
+    padding-top   : 15%;
+    font-size     : 60px;
+    font-weight   : 700;
+    text-transform: uppercase;
+    text-align    : center;
+  }
+}
+
+
+.h1 {
+  margin-bottom: 40px;
+  line-height  : 120%;
+
+  @include point(def-down) {
+    margin-bottom: 30px;
+  }
+
+  @include point(md-down) {
+    margin-bottom: 30px;
+  }
+
+}
+
+.h2 {
+  margin-bottom: 35px;
+  line-height  : 120%;
+
+
+}
+
+.h3 {
+  margin-bottom: 30px;
+  line-height  : 120%;
+
+  @include point(md-down) {}
+
+}
+
+.h4 {
+  margin-bottom: 25px;
+  line-height  : 120%;
+
+  @include point(md-down) {}
+}
+
+.h5 {
+  margin-bottom: 20px;
+  line-height  : 120%;
+
+  @include point(md-down) {}
+}
+
+.h6 {
+  margin-bottom: 14px;
+  line-height  : 120%;
+
+  @include point(md-down) {}
+}
+
+.slide-info {
+  position       : relative;
+  display        : none;
+  padding-top    : 20px;
+  justify-content: space-between;
+
+  @include point(md-down) {
+    display: flex;
+  }
+
+}
+
+.slick-slider {
+  overflow: visible !important;
+}
+
+.calendar-wrap {
+  display         : none;
+  position        : absolute;
+  top             : 55px;
+  right           : 0;
+  z-index         : 55;
+  padding         : 20px;
+  box-shadow      : 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius   : 2px;
+  background-color: $background-color-sec;
+}
+
+.calendar-wrap.show {
+  display: block;
+}
+
+.overlay-1 {
+  position  : absolute;
+  top       : 0;
+  bottom    : 0;
+  left      : 0;
+  right     : 0;
+  height    : 100%;
+  width     : 100%;
+  opacity   : 0;
+  transition: .3s ease;
+  background: rgba(0, 0, 0, .5);
+}
+
+.for-padding {
+  width         : 100%;
+  position      : relative;
+  padding-bottom: 50%;
+}
+
+.for-content {
+  padding : 20px 20px 20px 0;
+  position: absolute;
+  top     : 0;
+  left    : 0;
+  width   : 100%;
+  height  : 100%;
+}
+
+.fancybox-close-small {
+  display: none !important;
+}
+
+// for first section in other pages
+
+.section-header-pages {
+  padding: 100px 0 0 0;
+
+  @include point(md-down) {
+    padding-top: 30px;
+  }
+
+  &__title {
+      padding: 0;
+  }
+
+  &__description {
+    width        : 50%;
+    margin-bottom: 63px;
+    font-weight  : 700;
+    font-size    : 18px;
+    line-height  : 140%;
+    color        : $dark-2;
+
+    @include point(def-down) {
+      width: 100%;
+    }
+  }
+}
+
+ul:not([class]) {
+  margin: 40px 0;
+
+  @include point(def-down) {
+      margin: 0;
+  }
+
+  & li{
+      position     : relative;
+      padding-left : 30px;
+      font-size    : 18px;
+      line-height  : 140%;
+      margin-bottom: 30px;
+
+      &:last-child {
+          margin-bottom: 0;
+      }
+
+      @include point(md-down) {
+          padding-left: 30px;
+      }
+
+      &::before {
+          position     : absolute;
+          content      : "";
+          left         : 10px;
+          top          : 6px;
+          width        : 10px;
+          height       : 10px;
+          border       : 2px solid $green-1;
+          border-radius: 50%;
+      }
+  }
+}
+
+.graphite {
+    color: #494d4e;
+}
+
