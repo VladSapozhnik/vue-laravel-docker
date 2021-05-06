@@ -24,7 +24,7 @@
             <div v-html="infoContent"></div>
             </gmap-info-window>
         </GmapMap>
-        <div v-if="pending">ПРЕЛОАДЕР</div>
+        <div v-if="pending">PRELOADER</div>
     </div>
 </template>
 
@@ -58,6 +58,9 @@ export default {
         });
     },
 
+    mounted() {
+    },
+
     methods: {
        toggleInfoWindow: function (markers, idx) {
         this.infoWindowPos = markers.position;
@@ -73,11 +76,9 @@ export default {
       getInfoWindowContent: function (markers) {
         return (
             `<div class="map__info">
-                <div>
-                    <div class="map__info-title">
-                        <span style="font-weight: bold;">Name: </span>
-                        ${markers.title}
-                    </div>
+                <div class="map__info-title">
+                    <span style="font-weight: bold;">Name: </span>
+                    ${markers.title}
                 </div>
                 <div class="map__info-text">
                     <span style="font-weight: bold;">Info:  </span>

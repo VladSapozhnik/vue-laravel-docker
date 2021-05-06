@@ -1904,6 +1904,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(_this.markers);
     });
   },
+  mounted: function mounted() {},
   methods: {
     toggleInfoWindow: function toggleInfoWindow(markers, idx) {
       this.infoWindowPos = markers.position;
@@ -1917,7 +1918,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getInfoWindowContent: function getInfoWindowContent(markers) {
-      return "<div class=\"map__info\">\n                <div>\n                    <div class=\"map__info-title\">\n                        <span style=\"font-weight: bold;\">Name: </span>\n                        ".concat(markers.title, "\n                    </div>\n                </div>\n                <div class=\"map__info-text\">\n                    <span style=\"font-weight: bold;\">Info:  </span>\n                    ").concat(markers.description, "\n                    <br>\n                </div>\n            </div>");
+      return "<div class=\"map__info\">\n                <div class=\"map__info-title\">\n                    <span style=\"font-weight: bold;\">Name: </span>\n                    ".concat(markers.title, "\n                </div>\n                <div class=\"map__info-text\">\n                    <span style=\"font-weight: bold;\">Info:  </span>\n                    ").concat(markers.description, "\n                    <br>\n                </div>\n            </div>");
     }
   }
 });
@@ -38568,7 +38569,7 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _vm.pending ? _c("div", [_vm._v("ПРЕЛОАДЕР")]) : _vm._e()
+          _vm.pending ? _c("div", [_vm._v("PRELOADER")]) : _vm._e()
         ],
         1
       )
