@@ -1,5 +1,18 @@
-{
-    "lotos": [46.968089232404616, 31.998873413366002],
-    "museum": [49.96661342781546, 33.612370510266665],
-    "skyPark": [49.23339676153724, 28.472042584717663]
-}
+[
+    {
+        "title": "Lotos",
+        "position": {"lat": 46.96792304131717, "lng": 31.99888711379541},
+        "description": "Potomkinska St, 95, Mykolaiv, Mykolaiv Oblast, Ukraine, 54000"
+    },
+    {
+        "title": "Myrhorod Local Lore Museum",
+        "position": {"lat": 49.966381633943875, "lng": 33.61240329142153},
+        "description": "Myrhorod, Poltava Oblast, Ukraine, 37600"
+    },
+    {
+        "title": "Sky Park",
+        "position": {"lat": 49.233099846085764, "lng": 28.471903711350812},
+        "description": "Mykoly Ovodova St, 51, Vinnytsia, Vinnytsia Oblast, Ukraine, 21000"
+    }
+]
+

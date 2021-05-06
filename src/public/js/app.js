@@ -1852,22 +1852,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CoordinatesMap",
   data: function data() {
     return {
       pending: "true",
-      coordinatesData: {}
+      markers: [],
+      infoContent: '',
+      infoWindowPos: {
+        lat: 0,
+        lng: 0
+      },
+      infoWinOpen: false,
+      infoOptions: {
+        pixelOffset: {
+          width: 0,
+          height: -35
+        }
+      }
     };
   },
   created: function created() {
     var _this = this;
 
     this.axios.get("./static/map.json").then(function (response) {
-      _this.coordinatesData = response.data;
+      _this.markers = response.data;
       _this.pending = false;
-      console.log(_this.coordinatesData);
+      console.log(_this.markers);
     });
+  },
+  methods: {
+    toggleInfoWindow: function toggleInfoWindow(markers, idx) {
+      this.infoWindowPos = markers.position;
+      this.infoContent = this.getInfoWindowContent(markers);
+
+      if (this.currentMidx == idx) {
+        this.infoWinOpen = !this.infoWinOpen;
+      } else {
+        this.infoWinOpen = true;
+        this.currentMidx = idx;
+      }
+    },
+    getInfoWindowContent: function getInfoWindowContent(markers) {
+      return "<div class=\"map__info\">\n                <div>\n                    <div class=\"map__info-title\">\n                        <span style=\"font-weight: bold;\">Name: </span>\n                        ".concat(markers.title, "\n                    </div>\n                </div>\n                <div class=\"map__info-text\">\n                    <span style=\"font-weight: bold;\">Info:  </span>\n                    ").concat(markers.description, "\n                    <br>\n                </div>\n            </div>");
+    }
   }
 });
 
@@ -1952,11 +2003,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue2_google_maps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-google-maps */ "./node_modules/vue2-google-maps/dist/main.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.es5.js");
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.es5.js");
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue2_google_maps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-google-maps */ "./node_modules/vue2-google-maps/dist/main.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -1985,15 +2036,20 @@ files.keys().map(function (key) {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_3__, {
+  load: {
+    key: 'AIzaSyCpH5wELSQzDiT_Snv_ClnmbaPsUpzhSXk',
+    libraries: 'places'
+  }
+});
+vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vue_axios__WEBPACK_IMPORTED_MODULE_2___default()), (axios__WEBPACK_IMPORTED_MODULE_1___default()));
 var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   el: '#app'
 });
-
-
-
-
-vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vue_axios__WEBPACK_IMPORTED_MODULE_3___default()), (axios__WEBPACK_IMPORTED_MODULE_2___default()));
-vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_1__);
 
 /***/ }),
 
@@ -38457,10 +38513,65 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return !_vm.pending
-    ? _c("div", { staticClass: "container" }, [
-        _vm._v("\n    sfdfdsfds\n    "),
-        _vm.pending ? _c("div", [_vm._v("ПРЕЛОАДЕР")]) : _vm._e()
-      ])
+    ? _c(
+        "div",
+        { staticClass: "map__page" },
+        [
+          _c(
+            "GmapMap",
+            {
+              staticClass: "map",
+              attrs: {
+                center: { lat: 49.016209109037355, lng: 31.593056998693335 },
+                zoom: 6,
+                "map-type-id": "terrain"
+              }
+            },
+            [
+              _vm._l(_vm.markers, function(marker, index) {
+                return _c("GmapMarker", {
+                  key: index,
+                  attrs: {
+                    position: marker.position,
+                    clickable: true,
+                    draggable: true
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.toggleInfoWindow(marker, index)
+                    }
+                  }
+                })
+              }),
+              _vm._v(" "),
+              _c(
+                "gmap-info-window",
+                {
+                  attrs: {
+                    options: _vm.infoOptions,
+                    position: _vm.infoWindowPos,
+                    opened: _vm.infoWinOpen
+                  },
+                  on: {
+                    closeclick: function($event) {
+                      _vm.infoWinOpen = false
+                    }
+                  }
+                },
+                [
+                  _c("div", {
+                    domProps: { innerHTML: _vm._s(_vm.infoContent) }
+                  })
+                ]
+              )
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _vm.pending ? _c("div", [_vm._v("ПРЕЛОАДЕР")]) : _vm._e()
+        ],
+        1
+      )
     : _vm._e()
 }
 var staticRenderFns = []

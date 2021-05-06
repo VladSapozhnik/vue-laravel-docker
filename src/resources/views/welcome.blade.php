@@ -26,7 +26,6 @@
         <a href="/contacts">На страницу контакты</a>
             <div id="app">
                 <example-component></example-component>
-                <coordinates-map></coordinates-map>
                 <custom-banner></custom-banner>
             </div>
             <script src="/js/app.js"></script>

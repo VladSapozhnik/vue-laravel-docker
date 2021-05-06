@@ -463,3 +463,16 @@ ul:not([class]) li::before {
   padding: 10px 0px;
   display: block;
 }
+
+.map__page .map {
+  width: 100%;
+  height: 500px;
+}
+.map__page .map__info-title {
+  width: 160px;
+  padding-bottom: 20px;
+}
+.map__page .map__info-text {
+  width: 160px;
+  line-height: 18px;
+}

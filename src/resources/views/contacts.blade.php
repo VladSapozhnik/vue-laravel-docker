@@ -42,66 +42,9 @@
             <div id="app">
                 <div class="container-sm contacts">
                     <a href="/">На главную</a>
-                    <div id="map"></div>
+                    <coordinates-map></coordinates-map>
                 </div>
             </div>
             <script src="/js/app.js"></script>
-            <script>
-                function initMap() {
-                    var pos = {lat: 46.967925891608935, lng: 31.998887060535857}
-                    var pos2 = {lat: 49.96638333120937, lng: 33.61240208586674}
-                    var pos3 = {lat: 49.23309674373396, lng: 28.471906446595362}
-
-                    var opt = {
-                        center: pos,
-                        zoom: 4
-                    };
-
-                    var myMap = new google.maps.Map(document.getElementById("map"), opt);
-
-                    var marker = new google.maps.Marker({
-                        position: pos,
-                        map: myMap,
-                        icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-                    });
-
-                    var marker2 = new google.maps.Marker({
-                        position: pos2,
-                        map: myMap,
-                        icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-                    });
-
-                    var marker3 = new google.maps.Marker({
-                        position: pos3,
-                        map: myMap,
-                        icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-                    });
-
-                    var info = new google.maps.InfoWindow({
-                        content: '<div class="map-content"><h4>Lotos</h4><p>Potomkinska St, 95 Mykolaiv Mykolaiv Oblast, Ukraine 54000</p></div>'
-                    });
-
-                    var info2 = new google.maps.InfoWindow({
-                        content: '<div class="map-content"><h4>Moseum</h4><p>Myrhorod, Poltava Oblast, Ukraine, 37600</p></div>'
-                    });
-
-                    var info3 = new google.maps.InfoWindow({
-                        content: '<div class="map-content"><h4>SkyPark</h4><p>Mykoly Ovodova St, 51, Vinnytsia, Vinnytsia Oblast, Ukraine, 21000</p></div>'
-                    });
-
-                    marker.addListener("click", function() {
-                        info.open(myMap, marker)
-                    });
-
-                    marker2.addListener("click", function() {
-                        info2.open(myMap, marker2)
-                    });
-
-                    marker3.addListener("click", function() {
-                        info3.open(myMap, marker3)
-                    });
-                }
-            </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpH5wELSQzDiT_Snv_ClnmbaPsUpzhSXk&callback=initMap" async defer></script>
     </body>
 </html>

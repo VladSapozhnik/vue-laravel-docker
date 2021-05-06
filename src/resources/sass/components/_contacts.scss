@@ -4,3 +4,24 @@
         display: block;
     }
 }
+.map__page {
+    .map {
+        width: 100%;
+        height: 500px
+    }
+
+    .map__info {
+        &-title {
+            width: 160px;
+            padding-bottom: 20px;
+        }
+
+        &-text {
+            width: 160px;
+            line-height: 18px;
+        }
+    }
+}
+
+
+

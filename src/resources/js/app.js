@@ -27,15 +27,20 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import * as VueGoogleMaps from 'vue2-google-maps'
+Vue.use(VueGoogleMaps, {
+    load: {
+    key: 'AIzaSyCpH5wELSQzDiT_Snv_ClnmbaPsUpzhSXk',
+    libraries: 'places',
+    },
+})
+Vue.use(VueAxios, axios)
+
+
 const app = new Vue({
     el: '#app',
 });
-
-import Vue from 'vue'
-import * as VueGoogleMaps from 'vue2-google-maps'
-
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-
-Vue.use(VueAxios, axios)
-Vue.use(VueGoogleMaps)
