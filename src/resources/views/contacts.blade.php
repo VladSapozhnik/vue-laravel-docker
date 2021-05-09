@@ -41,7 +41,7 @@
     <body class="antialiased">
             <div id="app">
                 <div class="container-sm contacts">
-                    <a href="/">На главную</a>
+                    <a class="btn" href="/">На главную</a>
                     <coordinates-map></coordinates-map>
                 </div>
             </div>

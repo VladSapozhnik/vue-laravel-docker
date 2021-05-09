@@ -1874,7 +1874,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CoordinatesMap",
   data: function data() {
@@ -1904,7 +1903,21 @@ __webpack_require__.r(__webpack_exports__);
       console.log(_this.markers);
     });
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    var _this2 = this;
+
+    this.$nextTick(function () {
+      _this2.$refs.gmap.$mapPromise.then(function (map) {
+        var bounds = new google.maps.LatLngBounds();
+
+        _this2.markers.forEach(function (marker) {
+          bounds.extend(new google.maps.LatLng(marker.position.lat, marker.position.lng));
+        });
+
+        map.fitBounds(bounds);
+      });
+    });
+  },
   methods: {
     toggleInfoWindow: function toggleInfoWindow(markers, idx) {
       this.infoWindowPos = markers.position;
@@ -38513,67 +38526,68 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return !_vm.pending
-    ? _c(
-        "div",
-        { staticClass: "map__page" },
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: !_vm.pending,
+          expression: "!pending"
+        }
+      ],
+      staticClass: "map__page"
+    },
+    [
+      _c(
+        "GmapMap",
+        {
+          ref: "gmap",
+          staticClass: "map",
+          attrs: { "map-type-id": "terrain" }
+        },
         [
-          _c(
-            "GmapMap",
-            {
-              staticClass: "map",
+          _vm._l(_vm.markers, function(marker, index) {
+            return _c("GmapMarker", {
+              key: index,
               attrs: {
-                center: { lat: 49.016209109037355, lng: 31.593056998693335 },
-                zoom: 6,
-                "map-type-id": "terrain"
+                position: marker.position,
+                clickable: true,
+                draggable: true
+              },
+              on: {
+                click: function($event) {
+                  return _vm.toggleInfoWindow(marker, index)
+                }
+              }
+            })
+          }),
+          _vm._v(" "),
+          _c(
+            "gmap-info-window",
+            {
+              attrs: {
+                options: _vm.infoOptions,
+                position: _vm.infoWindowPos,
+                opened: _vm.infoWinOpen
+              },
+              on: {
+                closeclick: function($event) {
+                  _vm.infoWinOpen = false
+                }
               }
             },
-            [
-              _vm._l(_vm.markers, function(marker, index) {
-                return _c("GmapMarker", {
-                  key: index,
-                  attrs: {
-                    position: marker.position,
-                    clickable: true,
-                    draggable: true
-                  },
-                  on: {
-                    click: function($event) {
-                      return _vm.toggleInfoWindow(marker, index)
-                    }
-                  }
-                })
-              }),
-              _vm._v(" "),
-              _c(
-                "gmap-info-window",
-                {
-                  attrs: {
-                    options: _vm.infoOptions,
-                    position: _vm.infoWindowPos,
-                    opened: _vm.infoWinOpen
-                  },
-                  on: {
-                    closeclick: function($event) {
-                      _vm.infoWinOpen = false
-                    }
-                  }
-                },
-                [
-                  _c("div", {
-                    domProps: { innerHTML: _vm._s(_vm.infoContent) }
-                  })
-                ]
-              )
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _vm.pending ? _c("div", [_vm._v("PRELOADER")]) : _vm._e()
+            [_c("div", { domProps: { innerHTML: _vm._s(_vm.infoContent) } })]
+          )
         ],
-        1
-      )
-    : _vm._e()
+        2
+      ),
+      _vm._v(" "),
+      _vm.pending ? _c("div", [_vm._v("PRELOADER")]) : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

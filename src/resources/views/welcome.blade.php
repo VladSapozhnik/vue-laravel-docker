@@ -23,11 +23,13 @@
         <link rel="stylesheet" type="text/css" href="/css/app.css">
     </head>
     <body class="antialiased">
-        <a href="/contacts">На страницу контакты</a>
+        <div class="container-sm">
+            <a class="btn" href="/contacts">На страницу контакты</a>
             <div id="app">
                 <example-component></example-component>
                 <custom-banner></custom-banner>
             </div>
+        </div>
             <script src="/js/app.js"></script>
     </body>
 </html>

@@ -152,6 +152,19 @@ body .wrap {
   background: #fff;
 }
 
+.btn {
+  background-color: #e2e2e2;
+  border: 1px solid #494d4e;
+  display: block;
+  max-width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
 a {
   color: #535353;
   cursor: pointer;
@@ -459,9 +472,11 @@ ul:not([class]) li::before {
   color: #494d4e;
 }
 
-.contacts a {
-  padding: 10px 0px;
-  display: block;
+.card-header {
+  color: red;
+}
+.card-body {
+  color: blue;
 }
 
 .map__page .map {
