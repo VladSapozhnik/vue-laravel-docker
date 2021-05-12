@@ -1874,13 +1874,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CoordinatesMap",
   data: function data() {
     return {
-      pending: "true",
       autobindAllEvents: true,
       markers: [],
       infoContent: '',
@@ -1902,8 +1899,6 @@ __webpack_require__.r(__webpack_exports__);
 
     this.axios.get("./static/map.json").then(function (response) {
       _this.markers = response.data;
-      _this.pending = false;
-      console.log(_this.markers);
     });
   },
   mounted: function mounted() {
@@ -1914,21 +1909,12 @@ __webpack_require__.r(__webpack_exports__);
         var bounds = new google.maps.LatLngBounds();
 
         _this2.markers.forEach(function (marker) {
-          console.log(marker.position.lat);
-          console.log(marker.position.lng);
           bounds.extend(new google.maps.LatLng(marker.position.lat, marker.position.lng));
         });
 
         map.fitBounds(bounds);
-        _this2.pending = false;
       });
     });
-    /*         this.$nextTick(() => {
-                this.$refs.gmap.$mapPromise.then(() => {
-                    console.log(this.$refs.gmap)
-                    this.$refs.gmap.$mapObject.fitBounds(this.googleMapBounds);
-                })
-            }) */
   },
   methods: {
     toggleInfoWindow: function toggleInfoWindow(markers, idx) {
@@ -38547,11 +38533,7 @@ var render = function() {
         {
           ref: "gmap",
           staticClass: "map",
-          attrs: {
-            center: { lat: 0, lng: 0 },
-            zoom: 6,
-            "map-type-id": "terrain"
-          }
+          attrs: { center: { lat: 0, lng: 0 }, "map-type-id": "terrain" }
         },
         [
           _vm._l(_vm.markers, function(marker, index) {
@@ -38588,9 +38570,7 @@ var render = function() {
           )
         ],
         2
-      ),
-      _vm._v(" "),
-      _vm.pending ? _c("div", [_vm._v("PRELOADER")]) : _vm._e()
+      )
     ],
     1
   )

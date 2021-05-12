@@ -3,7 +3,6 @@
         <GmapMap
             ref="gmap"
             :center="{ lat: 0, lng: 0 }"
-            :zoom="6"
             map-type-id="terrain"
             class="map"
             >
@@ -25,7 +24,6 @@
             <div v-html="infoContent"></div>
             </gmap-info-window>
         </GmapMap>
-        <div v-if="pending">PRELOADER</div>
     </div>
 </template>
 
@@ -34,7 +32,6 @@ export default {
     name: "CoordinatesMap",
     data: function () {
         return {
-            pending: "true",
             autobindAllEvents: true,
             markers: [],
             infoContent: '',
@@ -55,8 +52,6 @@ export default {
     created: function () {
         this.axios.get("./static/map.json").then((response) => {
         this.markers = response.data;
-        this.pending = false;
-        console.log(this.markers);
         });
     },
 
@@ -65,22 +60,13 @@ export default {
             this.$refs.gmap.$mapPromise.then((map) => {
                 var bounds = new google.maps.LatLngBounds();
                 this.markers.forEach((marker) => {
-                console.log(marker.position.lat)
-                console.log(marker.position.lng)
                 bounds.extend(
                     new google.maps.LatLng(marker.position.lat, marker.position.lng)
                 );
                 });
                 map.fitBounds(bounds);
-                this.pending = false;
             });
         });
-/*         this.$nextTick(() => {
-            this.$refs.gmap.$mapPromise.then(() => {
-                console.log(this.$refs.gmap)
-                this.$refs.gmap.$mapObject.fitBounds(this.googleMapBounds);
-            })
-        }) */
     },
 
     methods: {
