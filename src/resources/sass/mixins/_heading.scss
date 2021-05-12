@@ -34,7 +34,7 @@ $heading_count: 6;
       @if ($text-align != "l") {
         @if ($text-align == "c") {
           text-align: center;
-        } @elseif ($text-align == "r") {
+        } @else if ($text-align == "r") {
           text-align: right;
         }
       }
